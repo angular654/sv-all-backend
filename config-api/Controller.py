@@ -3,7 +3,6 @@ import socket
 from pydantic import BaseModel
 from datetime import datetime
 import requests
-from Mongo import MongoSender
 from RedisSender import Redis
 import auth.auth_handler
 class RequestData(BaseModel):
@@ -16,7 +15,6 @@ class RequestData(BaseModel):
 
 class Controller:
     message_ctrl = Redis()
-    mongo_ctrl = MongoSender()
     def __init__(self):
         pass
     def service_info(self):
@@ -35,6 +33,5 @@ class Controller:
             }
 
             self.message_ctrl.send_data(json.dumps(data))
-            self.mongo_ctrl.send(data)
             return {"time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "upload_status":"Script was successfully uploaded", "acess_token": token}

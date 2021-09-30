@@ -5,7 +5,6 @@ import base64
 import json
 import numpy as np
 import HandTracking as htm
-from Mongo import MongoSender
 import ctypes
 from ordered_set import OrderedSet
 # from Messages import  MessagesController
@@ -92,7 +91,6 @@ while True:
     if filteredGestures == {'like', 'fist', 'hello'}:
         data = {"type": "camera_events", "event": "Лампочка гори!", "gestures": filteredGestures}
         ctrl.send_data(json.dumps(data))
-        mongo_ctrl.send(data)
         # exit()
 
     cTime = time.time()
