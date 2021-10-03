@@ -10,12 +10,12 @@ const subscriber = redis.createClient();
 subscriber.on("message", async function(channel, message) {
     let msg = JSON.parse(message)
     if(msg.type === 'script-creation') {
+        query = { config_name: msg.config_name, script_name: msg.script_name }
         options = { upsert: true, new: true, setDefaultsOnInsert: true };
-        await configs.findOneAndUpdate(msg, msg, options)
+        await configs.findOneAndUpdate(query, msg, options)
     }
     else if(msg.type === 'camera_events') {
-        options = { upsert: true, new: true, setDefaultsOnInsert: true };
-        await events.findOneAndUpdate(msg, msg, options)
+        await events.create(msg)
     }
 }); 
 subscriber.subscribe("logger");
