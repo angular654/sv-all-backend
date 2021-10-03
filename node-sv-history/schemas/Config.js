@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 ObjectId = Schema.Types.ObjectId;
 const ConfigSchema = new Schema({
-    userToken: {
+    token: {
         type: String,
         required: true,
         maxlength: 100
@@ -10,11 +10,11 @@ const ConfigSchema = new Schema({
         type: Array,
         required: true
     },
-    scriptName: {
+    script_name: {
         type: String,
         required: true
     },
-    userConfigName: {
+    config_name: {
         type: String,
         required: true
     },
@@ -22,9 +22,9 @@ const ConfigSchema = new Schema({
         type: Array,
         required: true
     },
-    createdAt: {
-        type: Date,
-        default: Date.now()
+    time: {
+        type: String,
+        required: true
     }
 })
 module.exports = model('configs', ConfigSchema)

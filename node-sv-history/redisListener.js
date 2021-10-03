@@ -10,9 +10,7 @@ const subscriber = redis.createClient();
 subscriber.on("message", async function(channel, message) {
     let msg = JSON.parse(message)
     if(msg.type === 'script-creation') {
-        query = { config_name: msg.config_name, script_name: msg.script_name }
-        options = { upsert: true, new: true, setDefaultsOnInsert: true };
-        await configs.findOneAndUpdate(query, msg, options)
+        await configs.create(msg)
     }
     else if(msg.type === 'camera_events') {
         await events.create(msg)
