@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^6.2.2",
+    "dotenv": "^10.0.0",
     "fastify": "^3.21.6",
     "fastify-cors": "^6.0.2",
     "mongoose": "^6.0.8",
