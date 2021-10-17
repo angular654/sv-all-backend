@@ -1,6 +1,10 @@
 const configs = require('./schemas/Config');
 const events  = require('./schemas/Event');
 const mongoose = require("mongoose");
+
+const dotenv = require('dotenv')
+const {MONGO_HOST, MONGO_PORT, MONGO_DB, SV_HISTORY_PORT_INT} = dotenv.config({path: '../.env'}).parsed
+
 const fastify = require('fastify')({ logger: true })
 fastify.register(require('fastify-cors'), {})
 fastify.get('/', async (request, reply) => {
@@ -39,8 +43,8 @@ fastify.post('/delete-configs', async (request,reply) => {
 
 const start = async () => {
   try {
-    mongoose.connect('mongodb://localhost:27017/sv-history');
-    await fastify.listen(7070)
+    mongoose.connect(`mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`);
+    await fastify.listen(SV_HISTORY_PORT_INT)
   } catch (err) {
     fastify.log.error(err)
     process.exit(1)

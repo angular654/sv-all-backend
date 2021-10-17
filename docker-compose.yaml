@@ -1,1 +1,19 @@
   version: "3.7"
+  services:
+    redis:
+      image: redis
+      ports:
+        - "${REDIS_PORT}:${REDIS_PORT}"
+    mongodb:
+      image: mongo
+      ports:
+        - "${MONGO_PORT}:${MONGO_PORT}"
+    config-api:
+      build: ./config-api/
+      ports:
+        - "80:80"
+      env_file:
+        - .env
+    node-sv-history:
+      build: ./node-sv-history
+      ports

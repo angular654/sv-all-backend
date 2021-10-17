@@ -2,8 +2,12 @@ const redis = require("redis");
 const configs = require('./schemas/Config');
 const events  = require('./schemas/Event');
 const mongoose = require("mongoose");
+
+require('dotenv').config({path: '../.env'})
+const {MONGO_HOST, MONGO_PORT, MONGO_DB} = process.env
+
 function connectDB() {
-    mongoose.connect('mongodb://localhost:27017/sv-history');
+    mongoose.connect(`mongodb://${MONGO_HOST}:${MONGO_PORT}/${MONGO_DB}`);
 }
 connectDB()
 const subscriber = redis.createClient();
