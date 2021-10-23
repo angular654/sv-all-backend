@@ -16,4 +16,9 @@
         - .env
     node-sv-history:
       build: ./node-sv-history
-      ports
+      ports: 
+        - "$SV_HISTORY_PORT_INT:$SV_HISTORY_PORT_EXT"
+    logs-service:
+      build: ./logs-service
+      ports:
+        - "$LOGS_SERVICE_PORT:$LOGS_SERVICE_PORT"
