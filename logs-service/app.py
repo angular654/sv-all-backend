@@ -19,7 +19,7 @@ def echo_socket(ws):
 SV_HISTORY_HOST = config('SV_HISTORY_HOST')
 SV_HISTORY_PORT = config('SV_HISTORY_PORT')
 LOGS_SERVICE_PORT = config('LOGS_SERVICE_PORT')
-NODE_SV_HISTORY = f'http://{SV_HISTORY_HOST}:{SV_HISTORY_PORT}'
+NODE_SV_HISTORY = f'{SV_HISTORY_HOST}:{SV_HISTORY_PORT}'
 
 @app.route('/')
 def hello():
