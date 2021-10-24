@@ -10,7 +10,7 @@ fastify.register(require('fastify-cors'), {})
 fastify.get('/', async (request, reply) => {
   return { hello: 'world' }
 })
-
+ 
 // fastify.post('/save-config', async (request,reply) => {
 //   res = await configs.create(data)
 //   reply.send(res)

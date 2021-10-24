@@ -17,7 +17,7 @@ def echo_socket(ws):
         gevent.sleep(0.1)
 
 SV_HISTORY_HOST = config('SV_HISTORY_HOST')
-SV_HISTORY_PORT = config('SV_HISTORY_PORT')
+SV_HISTORY_PORT = config('SV_HISTORY_PORT_INT')
 LOGS_SERVICE_PORT = config('LOGS_SERVICE_PORT')
 NODE_SV_HISTORY = f'{SV_HISTORY_HOST}:{SV_HISTORY_PORT}'
 

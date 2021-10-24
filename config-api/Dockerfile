@@ -6,7 +6,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY requirements.txt /usr/src/app/
-
+RUN apk add --no-cache python3-dev libffi-dev gcc musl-dev make
+RUN pip install cryptography
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .

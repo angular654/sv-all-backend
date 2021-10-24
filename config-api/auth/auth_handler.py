@@ -4,7 +4,6 @@ from typing import Dict
 import jwt
 from decouple import config
 
-
 JWT_SECRET = config("JWT_SECRET")
 JWT_ALGORITHM = config("JWT_ALGORITHM")
 
@@ -13,6 +12,7 @@ def signJWT(user_id: str) -> str:
         "user_id": user_id,
         "expires": time.time() + 600000
     }
+    
     token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
     return token
