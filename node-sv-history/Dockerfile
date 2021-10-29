@@ -9,5 +9,5 @@ RUN npm install
 COPY . .
 
 EXPOSE ${SV_HISTORY_PORT_INT}
-EXPOSE ${SV_HISTORY_PORT_EXT}
+
 CMD [ "npm", "start" ]

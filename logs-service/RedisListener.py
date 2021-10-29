@@ -2,10 +2,10 @@ import redis
 import json
 from decouple import config
 
-REDIS_HOST = config('REDIS_HOST')
-REDIS_PORT = config('REDIS_PORT')
-REDIS_DB = config('REDIS_DB')
-redis_url = f'redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_DB}'
+# REDIS_HOST = config('REDIS_HOST')
+# REDIS_PORT = config('REDIS_PORT')
+# REDIS_DB = config('REDIS_DB')
+redis_url = "redis://redis_1:6379/0"
 channel = 'logger'
 
 class PubSubListener(object):

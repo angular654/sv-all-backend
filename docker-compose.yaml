@@ -21,7 +21,7 @@
     node-sv-history:
       build: ./node-sv-history
       ports: 
-        - "$SV_HISTORY_PORT_INT:$SV_HISTORY_PORT_EXT"
+        - "$SV_HISTORY_PORT_INT:$SV_HISTORY_PORT_INT"
       depends_on:
         - redis
         - mongodb
@@ -44,5 +44,5 @@
       links:
         - redis
       environment:
-        - SV_HISTORY_HOST=$SV_HISTORY_HOST
-        - SV_HISTORY_PORT=$SV_HISTORY_PORT
+        - SV_HISTORY_HOST=localhost
+        - SV_HISTORY_PORT=7070

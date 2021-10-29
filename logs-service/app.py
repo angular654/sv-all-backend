@@ -19,7 +19,7 @@ def echo_socket(ws):
 SV_HISTORY_HOST = config('SV_HISTORY_HOST')
 SV_HISTORY_PORT = config('SV_HISTORY_PORT_INT')
 LOGS_SERVICE_PORT = config('LOGS_SERVICE_PORT')
-NODE_SV_HISTORY = f'{SV_HISTORY_HOST}:{SV_HISTORY_PORT}'
+NODE_SV_HISTORY = "http://"+SV_HISTORY_HOST+":"+SV_HISTORY_PORT
 
 @app.route('/')
 def hello():
@@ -28,14 +28,14 @@ def hello():
 
 @app.route('/configs-history', methods=["GET"])
 def conf_history():
-    url = f'{NODE_SV_HISTORY}/configs'
+    url = NODE_SV_HISTORY+'/configs'
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     r = requests.get(url=url,headers=headers)
     return r
 
 @app.route('/events-history', methods=["GET"])
 def events_history():
-    url = f'{NODE_SV_HISTORY}/events'
+    url = NODE_SV_HISTORY+'/events'
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     r = requests.get(url=url,headers=headers)
     return r
