@@ -1,9 +1,6 @@
 uvicorn
 fastapi
-pika
 pydantic
 requests
-pymongo
 redis
-PyJWT==2.1.0
 python-decouple==3.4

@@ -8,6 +8,7 @@ node_modules
 *.so
 
 # Distribution / packaging
+package-lock.json
 .Python
 build/
 develop-eggs/
@@ -101,7 +102,6 @@ celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
-
 # Environments
 .env
 .venv

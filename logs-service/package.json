@@ -1,0 +1,17 @@
+{
+  "name": "logs-node",
+  "version": "1.0.0",
+  "description": "logs microservice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "angular654",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ioredis": "^4.28.0",
+    "socket.io": "^4.3.1"
+  }
+}
