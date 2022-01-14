@@ -1,5 +1,6 @@
 numpy
-opencv-python
+redis
+python-decouple==3.4
 mediapipe
 zmq
 ordered_set
